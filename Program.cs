@@ -1,7 +1,8 @@
 ﻿// string[] wordsArray = {"hello", "2", "world", ":-)"};
 string[] wordsArray = {"1234", "1567", "-2", "computer science"};
 // string[] wordsArray = {"Russia", "Denmark", "Kazan"};
-string[] max3Digits = new string[countShortWords(wordsArray, 3)];
+
+string[] max3Digits = new string[wordsArray.Length];
 int count = 0;
 
 foreach (string i in wordsArray)
@@ -12,6 +13,8 @@ foreach (string i in wordsArray)
         count++;
     }
 }
+Array.Resize(ref max3Digits, count);
+
 Console.Clear();
 PrintArray(wordsArray);
 Console.Write(" -> ");
@@ -31,15 +34,4 @@ static void PrintArray(string[] array)
             Console.Write(array[array.Length - 1]);
         }
         Console.Write("]");
-    }
-
-///////////////////
-static int countShortWords(string[] array, int max)
-    {
-        int count = 0;
-        foreach (string item in array)
-        {
-            if (item.Length <= max) count++;
-        }
-        return count;
     }
